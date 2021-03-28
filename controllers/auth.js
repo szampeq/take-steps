@@ -41,7 +41,7 @@ exports.login = async (req, res) => {
                     httpOnly: true
                 }
                 res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect("/");
+                res.status(200).redirect("/profile");
             }
 
         })

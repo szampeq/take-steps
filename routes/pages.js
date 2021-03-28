@@ -8,12 +8,20 @@ router.get('/', authController.isLoggedIn, (req, res) => {
     });
 });
 
-router.get('/register', (req, res) => {
-    res.render('register.hbs');
+router.get('/register', authController.isLoggedIn, (req, res) => {
+    if (req.user) {
+        res.redirect('/profile');
+    } else {
+        res.render('register.hbs');
+    }
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', authController.isLoggedIn, (req, res) => {
+    if (req.user) {
+        res.redirect('profile');
+    } else {
     res.render('login.hbs');
+    }
 });
 
 router.get('/logout', authController.logout);
