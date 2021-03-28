@@ -7,17 +7,21 @@ body {
 }
 
 nav {
-    color: #000;
+    color: #fff;
     padding: 5px 60px;
     max-height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #2b2b2b;
+    width: 100%;
+    position: fixed;
 }
 
 nav ul {
     display: flex;
     justify-content: space-around;
+    padding-right: 110px;
     align-items: center;
 }
 
@@ -26,10 +30,10 @@ nav li {
 }
 
 nav li a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 8px;
+    padding: 10px;
 }
 
 nav li a:hover {
@@ -39,6 +43,7 @@ nav li a:hover {
 
 i {
     font-size: 8em;
+    color: #ec790d;
 }
 
 .info{
@@ -76,13 +81,13 @@ i {
   .infosteps{
     color: #000000;
     text-align: center;
-    font-size: 16px;
     padding: 20px;
   } 
   
   .stepscontent{
     text-align: center;
     padding: 110px;
+    font-size: 20px;
   }
 
   .register-info {
@@ -98,9 +103,14 @@ i {
     cursor: pointer;
   }
 
+  .fa-file-alt {
+    color: rgb(35, 38, 182);
+  }
+
+
 .footer{
-    background-color: #080a61;
+    background-color: #2b2b2b;
     text-align: center;
     padding: 10px;
-    color: #ffffff;
+    color: #818181;
   }
