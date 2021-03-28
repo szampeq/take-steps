@@ -138,6 +138,20 @@ i {
 	min-height: 400px;
 }
 
+.form-window-changepassword {
+    text-align: center;
+    margin: auto;
+	background-color: #fff;
+    padding: 50px;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	overflow: hidden;
+	width: 350px;
+	max-width: 100%;
+	min-height: 350px;
+}
+
   form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -180,4 +194,10 @@ input {
 
 .form-button:focus {
 	outline: none;
+}
+
+.user-panel {
+    padding: 50px;
+    width: 90%;
+    margin: auto;
 }
