@@ -41,9 +41,24 @@ nav li a:hover {
     text-decoration: none;
 }
 
+h6 {
+    font-size: 26px;
+    color: #0881f1;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: rgb(252, 8, 0);
+    text-decoration: none;
+}
+
 i {
     font-size: 8em;
-    color: #ec790d;
+    color: #0881f1;
 }
 
 .info{
@@ -84,7 +99,7 @@ i {
     padding: 20px;
   } 
   
-  .stepscontent{
+  .grid-content{
     background-color: #fff;
     text-align: center;
     padding: 110px;
@@ -106,7 +121,7 @@ i {
   }
 
   .fa-file-alt {
-    color: rgb(35, 38, 182);
+    color: rgb(240, 174, 6);
   }
 
 
@@ -119,6 +134,7 @@ i {
   }
 
   .container {
+      text-align: center;
       min-height: 700px;
       padding: 100px;
       background-color: #fff;
@@ -136,20 +152,6 @@ i {
 	width: 750px;
 	max-width: 100%;
 	min-height: 400px;
-}
-
-.form-window-changepassword {
-    text-align: center;
-    margin: auto;
-	background-color: #fff;
-    padding: 50px;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	overflow: hidden;
-	width: 350px;
-	max-width: 100%;
-	min-height: 350px;
 }
 
   form {
@@ -196,8 +198,44 @@ input {
 	outline: none;
 }
 
-.user-panel {
-    padding: 50px;
-    width: 90%;
+.avatar {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+  }
+
+.progress-status {
     margin: auto;
+    text-align: center;
 }
+
+.progress-bar {
+    margin: auto;
+    position: relative;
+    width: 65%;
+    height: 3em;
+    background-color: #fff;
+    border-radius: 1.5em;
+    color: white;
+    box-shadow: 0px 0px 5px rgb(101, 4, 180);
+}
+
+.progress-bar::before {
+    content: attr(data-label);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: .5em;
+    top: .5em;
+    bottom: .5em;
+    width: calc(var(--width, 0) * 1%);
+    min-width: 2rem;
+    max-width: calc(100% - 1em);
+    background-image: linear-gradient(to right, #59a9f2, #16b6f3, #00c2eb, #00cbdd, #1bd3cb);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+

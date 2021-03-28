@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">    
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/5ff0c880c6.js" crossorigin="anonymous"></script>
     <title>TakeSteps App</title>
 </head>
 
@@ -18,35 +19,44 @@
         </ul>
     </nav>
 
+    <div class="info">
+        <div class="infobackground">
+            <h1>Witaj {{user.name}}!</h1>
+                        <h4>({{user.email}})</h4>
+        <img src="/avatar.jpg" alt="Avatar" class="avatar"><br></br>
+
+        </div>
+    </div>
+
     <div class="container">
 
-        <div class="steps-panel">
-
-
+        <div class="progress-status">
+            <h2>Do końca miesięcznego wyzwania brakuje Ci jeszcze -steps- kroków!<br></br></h2>
+            <div class="progress-bar" style="--width: 50" data-label="Steps"></div>
         </div>
 
-        <div class="user-panel">
-            <h1>Panel użytkownika: </h1>
-            <h4>Witaj {{user.name}} ({{user.email}})!</h4>
+    <br><br><br><h1>Statystyki liczby kroków:</h1>
 
-                <div class="form-window-changepassword">
-                    <h1>Zmień hasło (todo!)</h1><br></br>
-
-                    <form action="/auth/changePassword" method="POST">
-
-                            <label for="oldPassword">Stare hasło</label>
-                            <input type="oldPassword" placeholder="Stare hasło" id="oldPassword" name="oldPassword">
-
-                            <label for="newPassword">Nowe hasło</label>
-                            <input type="newPassword" placeholder="Nowe hasło" id="newPassword" name="newPassword">
-
-                        <button type="submit" class="form-button">Zmień hasło</button>
-                    </form>
-            </div>
-            {{#if message}}
-                <h4>{{message}}</h4>
-            {{/if}}
+    <div class="grid-container">
+        <div class="grid-content">
+            <h4>Ostatnie 7 dni:</h4>
+            <i class="fas fa-calendar-week"></i>
+            <h6>12374</h6>
         </div>
+
+        <div class="grid-content">
+            <h4>Ostatni miesiąc:</h4>
+            <i class="far fa-calendar-alt"></i>
+            <h6>214272</h6>
+        </div>
+
+        <div class="grid-content">
+            <h4>Wszystkie kroki:</h4>
+            <i class="fas fa-infinity"></i>
+            <h6>241847389438</h6>
+        </div>
+    </div>
+            Chcesz zmienić hasło? Kliknij <a href="/changepassword"><b>tutaj!</b></a>
         </div>
     </div>
 
