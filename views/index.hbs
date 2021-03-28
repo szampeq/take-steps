@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://kit.fontawesome.com/5ff0c880c6.js" crossorigin="anonymous"></script>
+    <title>TakeSteps App</title>
+</head>
+<body>
+    <nav>
+        <h1>TakeSteps</h1>
+        <ul>
+            <li><a href="/">start</a></a></li>
+            {{#if user}}
+            <li><a href="/profile">profil</a></li>
+            <li><a href="/logout">wyloguj się</a></li>
+            {{else}}
+            <li><a href="/login">zaloguj</a></li>
+            <li><a href="/register">zarejestruj</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+
+    <div class="info">
+        <div class="infobackground">
+            <h1>Aplikacja TakeSteps</h1> <br></br><br></br>
+                Celem aplikacji jest zmotywowanie użytkownika do zwiększania codziennej aktywności fizycznej. <br></br>
+                Zbieramy dane ilości pokonanych przez użytkownika kroków z telefonu, opaski sportowej lub smartwacha. <br></br>
+                Specyfika aplikacji, pozwala na tworzenie wyzwań w gronie znajomych, by wspólnie pokonywać kolejne kilometry. <br></br>
+                Stwórzcie wspólny cel i wspólnie podejmijcie wyzwanie w TakeSteps. <br></br><br></br>
+            <h4>Czas na Twój krok! Dołącz do nas!</h4>
+        </div>
+    </div>
+
+    <div class="grid-container">
+
+        <div class="stepscontent">
+            <i class="fas fa-user"></i>
+        <h4>Zarejestruj się</h4> <br></br>
+        Aby zacząć używać aplikacji, skorzystaj z formularza rejestracji.
+        </div>
+
+        <div class="stepscontent">
+            <i class="fas fa-hand-sparkles"></i>
+        <h4>Stwórz wyzwanie</h4><br></br>
+        Możesz tworzyć cele indywidualne oraz w gronie swoich znajomych.
+        </div>
+
+        <div class="stepscontent">
+            <i class="fas fa-running"></i>
+        <h4>Przejdź do działania</h4><br></br>
+        Już prawie gotowe! Pozostało wyruszyć w drogę, powodzenia!
+        </div>
+
+    </div>
+
+    <div class="register-info">
+        <h2>Kliknij ikonę formularza i zarejestruj się!</h2><br></br>
+        <a href="/register"><i class="fas fa-file-alt"></i></a>
+    </div>
+
+    <div class="footer">
+        <h2>TakeSteps 2021</h2>
+    </div>
+
+
+
+</body>
+</html>
