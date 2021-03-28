@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">    
+    <title>TakeSteps App</title>
 </head>
+
 <body>
     <nav>
-        <h4>Node MySQL Login</h4>
+        <h1>TakeSteps</h1>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <li><a href="/">start</a></li>
+            <li><a href="/login">zaloguj</a></li>
+            <li><a href="/register">zarejestruj</a></li>
         </ul>
     </nav>
 
-    <div class="contatiner mt-4">
-        <div class="card">
-        <div class="card-header">
-            Login Form
-        </div>
-            <div class="card-body">
+    <div class="container">
+
+        <div class="form-window">
+
+                <h1>Formularz logowania</h1><br></br>
+
                 <form action="/auth/login" method="POST">
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
+                        <label for="email">Adres Email</label>
+                        <input type="email" placeholder="Adres email" id="email" name="email">
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
+                        <label for="password">Hasło</label>
+                        <input type="password" placeholder="Hasło" id="password" name="password">
 
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="form-button">Zaloguj się</button>
                 </form>
-            </div>
         </div>
         {{#if message}}
-            <h4 class="alert alert-danger mt-4">{{message}}</h4>
+            <h4>{{message}}</h4>
         {{/if}}
     </div>
+
+    <div class="footer">
+        &#xA9 TakeSteps 2021
+    </div>
+
 </body>
 </html>

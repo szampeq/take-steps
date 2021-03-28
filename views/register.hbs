@@ -4,55 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>TakeSteps App</title>
 </head>
+
 <body>
     <nav>
-        <h4>Node MySQL Login</h4>
+        <h1>TakeSteps</h1>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
+            <li><a href="/">start</a></li>
+            <li><a href="/login">zaloguj</a></li>
+            <li><a href="/register">zarejestruj</a></li>
         </ul>
     </nav>
 
-    <div class="contatiner mt-4">
-        <div class="card">
-        <div class="card-header">
-            Register Form
-        </div>
-            <div class="card-body">
+    <div class="container">
+
+        <div class="form-window">
+
+                <h1>Formularz rejestracji</h1><br></br>
+
                 <form action="/auth/register" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
+                        <label for="name">Adres Email</label>
+                        <input type="name" placeholder="Nazwa użytkownika" id="name" name="name">
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                    </div>
+                        <label for="email">Adres Email</label>
+                        <input type="email" placeholder="Adres email" id="email" name="email">
 
-                    <div class="form-group">
-                        <label for="passwordConfirm">Confirm Password</label>
-                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
-                    </div>
+                        <label for="password">Hasło</label>
+                        <input type="password" placeholder="Hasło" id="password" name="password">
 
-                    <button type="submit" class="btn btn-primary">Register</button>
+                        <label for="passwordConfirm">Powtórz hasło</label>
+                        <input type="password" placeholder="Powtórz hasło" id="passwordConfirm" name="passwordConfirm">
+
+                    <button type="submit" class="form-button">Zarejestruj się</button>
                 </form>
-            </div>
         </div>
         {{#if message}}
-            <h4 class="alert alert-danger mt-4">{{message}}</h4>
+            <h4>{{message}}</h4>
         {{/if}}
     </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <div class="footer">
+        &#xA9 TakeSteps 2021
+    </div>
+
+</body>
+
 </body>
 </html>

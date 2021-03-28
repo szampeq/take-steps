@@ -16,7 +16,7 @@ exports.login = async (req, res) => {
 
         if ( !email || !password ) {
             return res.status(400).render('login', {
-                message: 'You have to put an email and password!'
+                message: 'Musisz podać email i hasło!'
             })
         }
 
@@ -24,7 +24,7 @@ exports.login = async (req, res) => {
             console.log(results);
             if (!results || !(await bcrypt.compare(password, results[0].password))) {
                 res.status(401).render('login', {
-                    message: 'Email or password is incorrect'
+                    message: 'Email lub hasło niepoprawne!'
                 })
             } else {
                 const id = results[0].id;
@@ -63,11 +63,11 @@ exports.register = (req, res) => {
         
         if (results.length > 0) {
             return res.render('register.hbs', {
-                message: 'That email is already use'
+                message: 'Ten adres email jest już w użyciu!'
             })
         } else if ( password !== passwordConfirm ) {
             return res.render('register.hbs', {
-                message: 'Passwords do not match'
+                message: 'Hasła nie są jednakowe!'
             })
         }
 
@@ -80,7 +80,7 @@ exports.register = (req, res) => {
             } else {
                 console.log(results);
                 return res.render('register.hbs', {
-                    message: 'User registered'
+                    message: 'Pomyślnie zarejestrowano!'
                 });
             }
         })
