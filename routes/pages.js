@@ -37,6 +37,17 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     }
 })
 
+router.get('/ranking', authController.isLoggedIn, (req, res) => {
+    console.log(req.user);
+    if (req.user) {
+        res.render('ranking.hbs', {
+            user: req.user
+        });
+    } else {
+        res.redirect('/login');
+    }
+})
+
 router.get('/changepassword', authController.isLoggedIn, (req, res) => {
     console.log(req.user);
     if (req.user) {
