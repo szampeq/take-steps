@@ -13,19 +13,18 @@ const db = mysql.createConnection({
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
-
         if ( !email || !password ) {
-            return res.status(400).render('login', {
+            return res.status(400).render('login.hbs', {
                 message: 'Musisz podać email i hasło!'
             })
         }
 
         db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
-            console.log(results);
             if (!results || !(await bcrypt.compare(password, results[0].password))) {
-                res.status(401).render('login', {
+                console.log("typ: " + typeof(results));
+                return res.status(401).render('login.hbs', {
                     message: 'Email lub hasło niepoprawne!'
-                })
+                });
             } else {
                 const id = results[0].id;
 
@@ -74,7 +73,7 @@ exports.register = (req, res) => {
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
-        db.query('INSERT INTO users SET ?', {name: name, email: email, password: hashedPassword}, (error, results) => {
+        db.query('INSERT INTO users SET ?', {name: name, email: email, password: hashedPassword, registerdate: new Date()}, (error, results) => {
             if (error) {
                 console.log(error);
             } else {
