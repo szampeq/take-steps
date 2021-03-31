@@ -15,7 +15,7 @@
         <ul>
             <li><a href="/">start</a></li>
             <li><a href="/ranking">ranking</a></li>
-            <li><a href="/profile">{{user.name}}</a></li>
+            <li><a href="/profile">profil</a></li>
             <li><a href="/logout">wyloguj się</a></li>
         </ul>
     </nav>
@@ -31,39 +31,55 @@
     <div class="container">
         <h1>Ranking najlepszych 10 użytkowników w ostatnim tygodniu</h1>
         <div class="ranking">
-            <ul>
-                <li>1. </li>
-                <li>2. </li>
-                <li>3. </li>
-                <li>4. </li>
-                <li>5. </li>
-                <li>6. </li>
-                <li>7. </li>
-                <li>8. </li>
-                <li>9. </li>
-                <li>10. </li>
-            </ul>
-        </div>
-        <h1>Ranking najlepszych 10 użytkowników w ostatnim miesiącu</h1>
-        <div class="ranking">
-            <ul>
-                <li>1. </li>
-                <li>2. </li>
-                <li>3. </li>
-                <li>4. </li>
-                <li>5. </li>
-                <li>6. </li>
-                <li>7. </li>
-                <li>8. </li>
-                <li>9. </li>
-                <li>10. </li>
-            </ul>
+            <table className="rank-table">
+                <thead>
+                    <tr>
+                        <th>Ranking</th>
+                        <th>Użytkownik</th>
+                        <th>Liczba kroków</th>
+                     </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 
     <div class="footer">
         &#xA9 TakeSteps 2021
     </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    const rankingsBody = document.querySelector(".rank-table");
+
+    const loadData = async () => {
+        await axios.get('ranking/week')
+        .then(res => {
+            let data = res.data;
+            console.log(data);
+            buildTable(data);
+        })
+        .catch(function (error) {
+            console.log("error" + error);
+        })
+    }
+
+    const buildTable = (data) => {
+        data.forEach((row) => {
+            const tr = document.createElement("tr");
+
+            row.forEach((cell) => {
+                const td = document.createElement("td");
+                td.textContent = cell;
+                tr.appendChild(td);
+            })
+            rankingsBody.appendChild(tr);
+        })
+    }
+
+    document.addEventListener("DOMContentLoaded", loadData());
+</script>
 
 </body>
 </html>
+

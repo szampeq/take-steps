@@ -65,10 +65,10 @@ exports.register = (req, res) => {
                 message: 'Ten adres email jest już w użyciu!'
             })
         } else if ( password !== passwordConfirm ) {
+
             return res.render('register.hbs', {
                 message: 'Hasła nie są jednakowe!'
-            })
-        }
+            })        }
 
         let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
@@ -98,7 +98,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
             // check if user exists
             db.query('SELECT * FROM users WHERE id =?', [decoded.id], (error, result) => {
-                console.log(result);
+               // console.log(result);
 
                 if (!result) {
                     return next();

@@ -245,7 +245,7 @@ input {
     bottom: .5em;
     width: calc(var(--width, 0) * 1%);
     min-width: 2rem;
-    max-width: calc(100% - 1em);
+    max-width: calc(100% - 3em);
     background-image: linear-gradient(to right, #59a9f2, #16b6f3, #00c2eb, #00cbdd, #1bd3cb);
     border-radius: 1em;
     padding: 1em;
@@ -278,10 +278,9 @@ input {
 
 .steps-table li:hover {
   background-color: rgba(250, 246, 246, 0.534);
-  cursor: pointer;
 }
 
-.steps-table button {
+.arrow {
   margin: 10px;
 	border-radius: 50%;
 	border: 1px solid #FF4B2B;
@@ -326,13 +325,13 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 1px solid black;
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 800px;
-  color: var(--light);
-  background-color: var(--light-dark);
+  background-color: rgb(230, 230, 230);
   border-radius: 5px;
 }
 
@@ -341,7 +340,6 @@ input {
 }
 
 .popupInfo {
-  color: var(--light);
   margin-bottom: 20px;
 }
 
@@ -356,21 +354,19 @@ input {
 .popupInput {
   width: 100%;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid black;
   border-radius: 5px;
-  color: var(--light-dark);
-  background-color: var(--light);
 }
 
 .popupBtn {
   width: 30%;
   display: inline-block;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
   padding: 10px 22px;
   margin: 20px;
-  border: none;
   border-radius: 5px;
-  color: var(--deep-dark);
-  background-color: var(--light);
   text-transform: uppercase;
   cursor: pointer;
   transition: color .3s, background-color .3s;
@@ -378,5 +374,4 @@ input {
 
 .popupBtn:hover {
   color: #fff;
-  background-color: var(--light-blue);
 }

@@ -32,22 +32,23 @@
     <div class="container">
 
         <div class="progress-status">
-            <h2>Do końca miesięcznego wyzwania brakuje Ci jeszcze -steps- kroków!<br></br></h2>
-            <div class="progress-bar" style="--width: 50" data-label="Steps"></div><br>
+            <h2>Do końca miesięcznego wyzwania brakuje Ci jeszcze -steps- kroków!</h2>
+            <h5>Zdefiniuj swój dzienny cel, by wyliczyć miesięczne wyzwanie.</h5><br></br>
+            <div class="progress-bar" style="--width: 0" data-label="Steps"></div><br>
            <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5> <br></br>
 
             <h2>Twoje kroki z ostatnich dni:</h2>
             (kliknij na wybrane okno by zmodyfikować liczbę kroków)
             <div class="steps-table">
-                <button><i class="fas fa-arrow-up"></i></button>
+                <button class="arrow"><i class="fas fa-arrow-up"></i></button>
                 <ul>
-                    <li id='test'><div class="date">data</div> <br></br> <div class="steps">dodaj kroki</div></li>
-                    <li id='test'><div class="date">data</div> <br></br> <div class="steps">dodaj kroki</div></li>
-                    <li id='test'><div class="date">data</div> <br></br> <div class="steps">dodaj kroki</div></li>
-                    <li id='test'><div class="date">data</div> <br></br> <div class="steps">dodaj kroki</div></li>
-                    <li id='test'><div class="date">data</div> <br></br> <div class="steps">dodaj kroki</div></li>
+                    <li id='test1'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
+                    <li id='test2'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
+                    <li id='test3'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
+                    <li id='test4'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
+                    <li id='test5'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
                 </ul>
-                <button><i class="fas fa-arrow-down"></i></button>
+                <button class="arrow"><i class="fas fa-arrow-down"></i></button>
             </div>
 
         </div>
@@ -91,5 +92,6 @@
         </div>
     </div>
 
+     <script src="/js/steps.js"></script>
 </body>
 </html>
