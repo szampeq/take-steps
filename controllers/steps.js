@@ -14,11 +14,10 @@ exports.weekList =  async (req, res) => {
         }
 
         console.log("steps:");
-        results=JSON.parse(JSON.stringify(results))
         console.log(results);
         
         return res.send({
-            data: results
+            steps: results
         });
     });
 }

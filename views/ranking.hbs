@@ -31,7 +31,7 @@
     <div class="container">
         <h1>Ranking najlepszych 10 użytkowników w ostatnim tygodniu</h1>
         <div class="ranking">
-            <table className="rank-table">
+            <table id="rank-table" class="table">
                 <thead>
                     <tr>
                         <th>Ranking</th>
@@ -39,7 +39,12 @@
                         <th>Liczba kroków</th>
                      </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <tr>
+                        <td>username</td>
+                        <td>steps</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
@@ -50,12 +55,13 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 
-    const rankingsBody = document.querySelector(".rank-table");
+    const rankingsBody = document.querySelector('#rank-table > tbody');
+    console.log(rankingsBody);
 
     const loadData = async () => {
         await axios.get('ranking/week')
         .then(res => {
-            let data = res.data;
+            let data = res.data.steps;
             console.log(data);
             buildTable(data);
         })
@@ -65,16 +71,25 @@
     }
 
     const buildTable = (data) => {
-        data.forEach((row) => {
-            const tr = document.createElement("tr");
 
-            row.forEach((cell) => {
-                const td = document.createElement("td");
-                td.textContent = cell;
-                tr.appendChild(td);
-            })
+        if (rankingsBody)
+            while (rankingsBody.firstChild)
+                rankingsBody.removeChild(rankingsBody.firstChild);
+
+        // todo!!!: make it... better/shorter... maybe with with foreach
+        for (let i = 0; i < data.length; i++) {
+            const tr = document.createElement("tr");
+            const td1 = document.createElement("td");
+            const td2 = document.createElement("td");
+            const td3 = document.createElement("td");
+            td1.textContent = i + 1;
+            td2.textContent = data[i].name;
+            td3.textContent = data[i].weeksteps;
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
             rankingsBody.appendChild(tr);
-        })
+        }
     }
 
     document.addEventListener("DOMContentLoaded", loadData());
