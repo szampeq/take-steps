@@ -29,7 +29,7 @@
     </div>
 
     <div class="container">
-        <h1>Ranking najlepszych 10 użytkowników w ostatnim tygodniu</h1>
+        <h1>Ranking najlepszych 10 użytkowników w ostatnich 30 dniach</h1>
         <div class="ranking">
             <table id="rank-table" class="ranking-table">
                 <thead>
@@ -59,10 +59,10 @@
     console.log(rankingsBody);
 
     const loadData = async () => {
-        await axios.get('ranking/week')
+        await axios.get('ranking/month')
         .then(res => {
             let data = res.data.steps;
-            console.log(data);
+            //console.log(data);
             buildTable(data);
         })
         .catch(function (error) {
@@ -84,7 +84,7 @@
             const td3 = document.createElement("td");
             td1.textContent = i + 1;
             td2.textContent = data[i].name;
-            td3.textContent = data[i].weeksteps;
+            td3.textContent = data[i].monthsteps;
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);

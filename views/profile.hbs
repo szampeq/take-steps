@@ -8,14 +8,12 @@
     <script src="https://kit.fontawesome.com/5ff0c880c6.js" crossorigin="anonymous"></script>
     <title>TakeSteps App</title>
 </head>
-
-<body>
     <nav>
         <h1>TakeSteps</h1>
         <ul>
             <li><a href="/">start</a></li>
             <li><a href="/ranking">ranking</a></li>
-            <li><a href="/profile">{{user.name}}</a></li>
+            <li><a href="/profile">profil</a></li>
             <li><a href="/logout">wyloguj się</a></li>
         </ul>
     </nav>
@@ -31,50 +29,45 @@
 
     <div class="container">
 
-        <div class="progress-status">
-            <h2>Do końca miesięcznego wyzwania brakuje Ci jeszcze -steps- kroków!</h2>
-            <h5>Zdefiniuj swój dzienny cel, by wyliczyć miesięczne wyzwanie.</h5><br></br>
-            <div class="progress-bar" style="--width: 0" data-label="Steps"></div><br>
-           <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5> <br></br>
+           <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5>
 
             <h2>Twoje kroki z ostatnich dni:</h2>
-            (kliknij na wybrane okno by zmodyfikować liczbę kroków)
+
             <div class="steps-table">
                 <button class="arrow"><i class="fas fa-arrow-up"></i></button>
                 <ul>
-                    <li id='test1'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
-                    <li id='test2'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
-                    <li id='test3'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
-                    <li id='test4'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
-                    <li id='test5'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">EDIT</button></li>
+                    <li id='test1'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">edytuj</button></li>
+                    <li id='test2'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">edytuj</button></li>
+                    <li id='test3'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">edytuj</button></li>
+                    <li id='test4'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">edytuj</button></li>
+                    <li id='test5'><div class="steps">dodaj kroki</div><div class="date">data</div> <br> <button class="edit">edytuj</button></li>
                 </ul>
                 <button class="arrow"><i class="fas fa-arrow-down"></i></button>
             </div>
-
         </div>
 
-    <br><br><br><h1>Statystyki liczby kroków:</h1>
+    <center><h1>Statystyki liczby kroków:</h1></center>
 
     <div class="grid-container">
         <div class="grid-content">
             <h4>Ostatnie 7 dni:</h4>
             <i class="fas fa-calendar-week"></i>
-            <h6>12374</h6>
+            <h6><p id="7days"></p></h6>
         </div>
 
         <div class="grid-content">
             <h4>Ostatni miesiąc:</h4>
             <i class="far fa-calendar-alt"></i>
-            <h6>214272</h6>
+            <h6><p id="30days"></p></h6>
         </div>
 
         <div class="grid-content">
             <h4>Wszystkie kroki:</h4>
             <i class="fas fa-infinity"></i>
-            <h6>241847389438</h6>
+            <h6><p id="alldays"></p></h6>
         </div>
     </div>
-            Chcesz zmienić hasło? Kliknij <a href="/changepassword"><b>tutaj!</b></a>
+            <center>Chcesz zmienić hasło? Kliknij <a href="/changepassword"><b>tutaj!</b></a></center></br>
         </div>
     </div>
 
@@ -93,5 +86,34 @@
     </div>
 
      <script src="/js/steps.js"></script>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    const d7days = document.getElementById('7days');
+    const d30days = document.getElementById('30days');
+    const alldays = document.getElementById('alldays');
+
+    const url = 'profile/userdata/' + `{{user.id}}`;
+    console.log(url);
+
+    const loadData = async () => {
+        await axios.get(url)
+        .then(res => {
+            let data = res.data.steps;
+            fillData(data);
+        })
+        .catch(function (error) {
+            console.log("error" + error);
+        })
+    }
+
+    const fillData = data => {
+        d7days.innerHTML = data[0][0].weeksteps;
+        d30days.innerHTML = data[1][0].monthsteps;
+        alldays.innerHTML = data[2][0].allsteps;
+    }
+
+    document.addEventListener("DOMContentLoaded", loadData());
+</script>
 </body>
 </html>

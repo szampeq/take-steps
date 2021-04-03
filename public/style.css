@@ -143,8 +143,8 @@ i:hover {
 
   .container {
       text-align: center;
-      min-height: 700px;
-      padding: 100px;
+      min-height: 500px;
+      padding: 50px;
       background-color: #fff;
   }
 
@@ -218,38 +218,6 @@ input {
     cursor: pointer;
     box-shadow: inset 0px 0px 20px rgb(253, 253, 253);
   }
-
-.progress-status {
-    margin: auto;
-    text-align: center;
-}
-
-.progress-bar {
-    margin: auto;
-    position: relative;
-    width: 65%;
-    height: 3em;
-    background-color: #fff;
-    border-radius: 1.5em;
-    color: white;
-    box-shadow: 0px 0px 5px rgb(101, 4, 180);
-}
-
-.progress-bar::before {
-    content: attr(data-label);
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: .5em;
-    top: .5em;
-    bottom: .5em;
-    width: calc(var(--width, 0) * 1%);
-    min-width: 2rem;
-    max-width: calc(100% - 3em);
-    background-image: linear-gradient(to right, #59a9f2, #16b6f3, #00c2eb, #00cbdd, #1bd3cb);
-    border-radius: 1em;
-    padding: 1em;
-}
 
 .steps-table {
   padding: 20px;

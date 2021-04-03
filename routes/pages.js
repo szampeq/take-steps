@@ -38,6 +38,10 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     }
 })
 
+router.get('/profile/userdata/:userid', stepsController.userData), (req, res) => {
+    res.send(req.params);
+};
+
 router.get('/ranking', authController.isLoggedIn, (req, res) => {
     console.log(req.user);
     if (req.user) {
@@ -49,7 +53,7 @@ router.get('/ranking', authController.isLoggedIn, (req, res) => {
     }
 })
 
-router.get('/ranking/week', stepsController.weekList);
+router.get('/ranking/month', stepsController.monthList);
 
 router.get('/changepassword', authController.isLoggedIn, (req, res) => {
     console.log(req.user);
