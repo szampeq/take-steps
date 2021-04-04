@@ -273,6 +273,7 @@ input {
 }
 
 .steps-table .steps {
+  padding: 10px;
   font-weight: bold;
   color: #FF4B2B;
   font-size: 20px;
