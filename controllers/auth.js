@@ -107,6 +107,7 @@ exports.isLoggedIn = async (req, res, next) => {
                 req.user = result[0];
                 console.log("user is")
                 console.log(req.user);
+
                 return next();
 
             });
@@ -122,4 +123,5 @@ exports.isLoggedIn = async (req, res, next) => {
 exports.logout = async (req, res) => {
     res.clearCookie('jwt');
     res.status(200).redirect('/');
+    localStorage.clear();
   }

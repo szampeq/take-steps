@@ -32,7 +32,6 @@
            <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5>
 
             <h2>Twoje kroki z ostatnich dni:</h2>
-
             <div class="steps-table">
                 <button class="arrow"><i class="fas fa-arrow-up"></i></button>
                 <ul>
@@ -88,10 +87,11 @@
      <script src="/js/steps.js"></script>
      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-
+    
     const d7days = document.getElementById('7days');
     const d30days = document.getElementById('30days');
     const alldays = document.getElementById('alldays');
+    const history = document.querySelector('.steps-table > ul');
 
     const url = 'profile/userdata/' + `{{user.id}}`;
     console.log(url);
@@ -99,7 +99,8 @@
     const loadData = async () => {
         await axios.get(url)
         .then(res => {
-            let data = res.data.steps;
+            let data = res.data;
+            console.log(data);
             fillData(data);
         })
         .catch(function (error) {
@@ -108,9 +109,9 @@
     }
 
     const fillData = data => {
-        d7days.innerHTML = data[0][0].weeksteps;
-        d30days.innerHTML = data[1][0].monthsteps;
-        alldays.innerHTML = data[2][0].allsteps;
+        d7days.innerHTML = data.weekscore;
+        d30days.innerHTML = data.monthscore;
+        alldays.innerHTML = data.allscore;
     }
 
     document.addEventListener("DOMContentLoaded", loadData());
