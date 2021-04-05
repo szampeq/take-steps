@@ -60,11 +60,8 @@ exports.userData =  async (req, res) => {
 }
 
 exports.newStep = async (req, res) => {
-    console.log("BODY", req.body);
     const date = new Date(req.body.date);
     date.setDate(date.getDate() + 1);
-    
-    console.log("date", date);
 
     const insertSteps = async (results) => {
         try{
@@ -79,45 +76,37 @@ exports.newStep = async (req, res) => {
         }
     }
 
+    const updateSteps = async (results) => {
+        try{
+            await db.query('UPDATE steps SET amount = ? WHERE day = ?', [req.body.steps, date.toISOString().slice(0, 10)],  (error, results) => {
+                if (error) {
+                    throw error;
+                }
+                console.log(results);
+                res.redirect(req.get('referer'));
+            });
+        }catch(error) {
+            console.log(error);
+        }
+    }
+
     try {
         await db.query('SELECT * FROM steps WHERE userid = ? && day = ?', [req.params.userid, date.toISOString().slice(0, 10)], (error, results) => {
             if (error) {
                 throw error;
             }
 
-            if (results.length > 0) {
-                res.redirect(req.get('referer'));
-            }
+            if (results.length > 0)
+                updateSteps(results);
             else
-               insertSteps(results);
+                insertSteps(results);
         });
 
     } catch (error) {
         console.log(error);
     }
+}
 
+exports.updateStep = async (req, res) => {
 
-/*
-    const date = new Date();
-    date.setHours(0,0,0);
-    date.setUTCHours(0);
-    const userID = req.params.userid;
-    const userRegisterDate = req.params.registerdate;
-
-    await db.query('SELECT steps.id, day, amount FROM steps INNER JOIN users ON steps.userid = users.id WHERE users.id = ?', userID, (error, results) => {
-        if (error) {
-            throw error;
-        }
-    });
-    console.log(req.params);
-    console.log(userID);
-    console.log(steps);
-    console.log(date);*/
-
-    /*
-    await db.query('INSERT INTO steps (day, amount, userid) VALUES (? ? ?)', day, steps, userID,  (error, results) => {
-        if (error) {
-            throw error;
-        }
-    });*/
 }

@@ -32,7 +32,7 @@
            <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5>
 
             <h2>Twoje kroki z ostatnich dni:</h2>
-            <div class="new-steps"><button class="form-button new"> Dodaj kroki </button></div>
+            <div class="new-steps"><button class="form-button new"> Dodaj/Edytuj kroki </button></div>
             {{#if message}}
                <h4>{{message}}</h4>
             {{/if}}
@@ -73,16 +73,6 @@
         &#xA9 TakeSteps 2021
     </div>
 
-    <div class="popup">
-        <h3>Edytuj liczbę kroków:</h3>
-        <div class="popupBody">
-            <p class="popupInfo"></p>
-            <input type="text" class="popupInput" placeholder="Wprowadź liczbę kroków">
-            <button class="popupBtn accept">Zatwierdź</button>
-            <button class="popupBtn cancel">Anuluj</button>
-        </div>
-    </div>
-
     <div class="form-window steps">
         <form action="/profile/userdata/steps/{{user.id}}" method="POST">
         <h3>Dodawanie kroków</h3>
@@ -92,7 +82,7 @@
             <label for="steps">Liczba kroków</label>
             <input type="steps" placeholder="Liczba kroków" id="steps" name="steps">
             <span style="display: inline;">
-                <button type="submit" class="form-button steps">Dodaj</button>
+                <button type="submit" class="form-button steps">Dodaj/Zmień</button>
                 <button type="button" class="form-button cancelForm">Anuluj</button>
             </span>
 
@@ -142,12 +132,8 @@
             stepsAmount.classList.add('steps');
             stepsAmount.innerHTML = element.amount;
 
-            editButton.classList.add('edit');
-            editButton.innerHTML = "edytuj";
-
             daySteps.appendChild(stepsDate);
             daySteps.appendChild(stepsAmount);
-            daySteps.appendChild(editButton);
             stepsList.appendChild(daySteps);
         });
 
