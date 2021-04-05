@@ -42,6 +42,10 @@ router.get('/profile/userdata/:userid', stepsController.userData), (req, res) =>
     res.send(req.params);
 };
 
+router.post('/profile/userdata/steps/:userid', stepsController.newStep), (req, res) => {
+    res.send(req.params);
+};
+
 router.get('/ranking', authController.isLoggedIn, (req, res) => {
     console.log(req.user);
     if (req.user) {

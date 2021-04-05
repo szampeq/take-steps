@@ -5,6 +5,8 @@ let $editedStep;
 let $popupInput;
 let $addPopupBtn;
 let $closePopupBtn;
+let $newStepsForm;
+let $newStepButton;
 
 const main = () => {
     prepareDOMElements();
@@ -18,12 +20,17 @@ const prepareDOMElements = () => {
     $popupInput = document.querySelector('.popupInput');
     $addPopupBtn = document.querySelector('.accept');
     $closePopupBtn = document.querySelector('.cancel');
+    $newStepsForm = document.querySelector('.form-window.steps');
+    $newStepButton = document.querySelector('.form-button.new');
+    $closeNewStepsButton = document.querySelector('.cancelForm');
 }
 
 const prepareDOMEvents = () => {
     $ulList.addEventListener('click', checkClick);
     $closePopupBtn.addEventListener('click', closePopup);
     $addPopupBtn.addEventListener('click', changeSteps);
+    $newStepButton.addEventListener('click', displayForm);
+    $closeNewStepsButton.addEventListener('click', closeForm);
 }
 
 const checkClick = e => {
@@ -34,13 +41,13 @@ const checkClick = e => {
 const editSteps = e => {
     const oldSteps = e.target.closest('li').id;
     $editedStep = document.getElementById(oldSteps);
-    $popupInput.value = $editedStep.firstChild.textContent;
+    $popupInput.value = '';
     $popup.style.display = 'flex';
 }
 
 const changeSteps = () => {
     if ($popupInput.value !== '') {
-        $editedStep.firstChild.textContent = $popupInput.value;
+        $editedStep.firstdChild.textContent = $popupInput.value;
         $popup.style.display = 'none';
         $popupInfo.innerText = '';
     } else {
@@ -50,6 +57,14 @@ const changeSteps = () => {
 
 const closePopup = () => {
     $popup.style.display = 'none';
+}
+
+const displayForm = () => {
+    $newStepsForm.style.display = 'flex';
+}
+
+const closeForm = () => {
+    $newStepsForm.style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', main);

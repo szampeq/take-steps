@@ -151,16 +151,32 @@ i:hover {
   .form-window {
     text-align: center;
     margin: auto;
-	background-color: #fff;
+	  background-color: #fff;
     padding: 100px;
-	border-radius: 10px;
+	  border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
-	overflow: hidden;
-	width: 750px;
-	max-width: 100%;
-	min-height: 400px;
+    overflow: hidden;
+    width: 750px;
+    max-width: 100%;
+    min-height: 400px;
 }
+
+  .form-window.steps {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+  }
 
   form {
 	background-color: #FFFFFF;
@@ -182,7 +198,7 @@ input {
 }
 
 .form-button {
-    margin: 30px;
+  margin: 30px;
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -262,6 +278,17 @@ input {
   cursor: pointer;
   text-decoration: none;
   outline: none;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+.arrow:active {
+transform: scale(0.95);
+}
+
+.arrow:focus {
+outline: none;
 }
 
 .steps-table i {
