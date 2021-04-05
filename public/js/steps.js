@@ -5,6 +5,8 @@ let $closePopupBtn;
 let $newStepsForm;
 let $newStepButton;
 let $inputDate;
+let $arrowUp;
+let $arrowDown;
 
 const main = () => {
     prepareDOMElements();
@@ -17,6 +19,8 @@ const prepareDOMElements = () => {
     $newStepButton = document.querySelector('.form-button.new');
     $closeNewStepsButton = document.querySelector('.cancelForm');
     $inputDate = document.querySelector('.date');
+    $arrowUp = document.querySelector('.up');
+    $arrowDown = document.querySelector('.down');
 }
 
 const prepareDOMEvents = () => {

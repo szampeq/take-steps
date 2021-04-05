@@ -31,7 +31,7 @@ exports.userData =  async (req, res) => {
     const monthStamp = 30 * 24 * 60 * 60 * 1000;
 
 
-    await db.query('SELECT steps.id, day, amount FROM steps INNER JOIN users ON steps.userid = users.id WHERE users.id = ? ORDER BY day', userID, (error, results) => {
+    await db.query('SELECT steps.id, day, amount FROM steps INNER JOIN users ON steps.userid = users.id WHERE users.id = ? ORDER BY day DESC', userID, (error, results) => {
         if (error) {
             throw error;
         }

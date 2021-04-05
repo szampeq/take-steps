@@ -29,20 +29,7 @@
 
     <div class="container">
 
-           <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5>
-
-            <h2>Twoje kroki z ostatnich dni:</h2>
-            <div class="new-steps"><button class="form-button new"> Dodaj/Edytuj kroki </button></div>
-            {{#if message}}
-               <h4>{{message}}</h4>
-            {{/if}}
-            <div class="steps-table">
-                <button class="arrow"><i class="fas fa-arrow-up"></i></button>
-                <ul>
-                </ul>
-                <button class="arrow"><i class="fas fa-arrow-down"></i></button>
-            </div>
-        </div>
+    <h5>Według Światowej Organizacji Zdrowia (WHO), zdrowy człowiek powinien pokonywać średnio od 6000 do 8000 kroków dziennie.</h5>
 
     <center><h1>Statystyki liczby kroków:</h1></center>
 
@@ -65,10 +52,20 @@
             <h6><p id="alldays"></p></h6>
         </div>
     </div>
-            <center>Chcesz zmienić hasło? Kliknij <a href="/changepassword"><b>tutaj!</b></a></center></br>
+            <div class="new-steps"><button class="form-button new"> Dodaj/Edytuj kroki </button></div>
+            <h2>Historia kroków:</h2>
+            {{#if message}}
+               <h4>{{message}}</h4>
+            {{/if}}
+            <div class="steps-table">
+                <ul>
+                </ul>
+            </div>
+        </div>
+
         </div>
     </div>
-
+       <center>Chcesz zmienić hasło? Kliknij <a href="/changepassword"><b>tutaj!</b></a></br></center> 
     <div class="footer">
         &#xA9 TakeSteps 2021
     </div>
@@ -77,10 +74,10 @@
         <form action="/profile/userdata/steps/{{user.id}}" method="POST">
         <h3>Dodawanie kroków</h3>
             <label for="date">Data</label>
-            <input type="date" placeholder="Data" id="date" name="date">
+            <input type="date" placeholder="Data" id="date" name="date" required="required">
 
             <label for="steps">Liczba kroków</label>
-            <input type="steps" placeholder="Liczba kroków" id="steps" name="steps">
+            <input type="steps" pattern="[0-9]" placeholder="Liczba kroków" id="steps" name="steps" required="required">
             <span style="display: inline;">
                 <button type="submit" class="form-button steps">Dodaj/Zmień</button>
                 <button type="button" class="form-button cancelForm">Anuluj</button>
@@ -88,7 +85,6 @@
 
         </form>
     </div>
-
 
      <script src="/js/steps.js"></script>
      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -101,6 +97,7 @@
     const registerDate = new Date(`{{user.registerdate}}`);
     const oneDay = 24 * 60 * 60 * 1000;
     const stepsList = document.querySelector('.steps-table > ul');
+    let liElements = 0;
     
     const url = 'profile/userdata/' + `{{user.id}}`;
     console.log(url);
@@ -135,18 +132,15 @@
             daySteps.appendChild(stepsDate);
             daySteps.appendChild(stepsAmount);
             stepsList.appendChild(daySteps);
+            liElements++;
         });
 
-        checkData();
         /* User Scores */
         d7days.innerHTML = data.weekscore;
         d30days.innerHTML = data.monthscore;
         alldays.innerHTML = data.allscore;
     }
 
-    checkData = () => {
-
-    }
 
     document.addEventListener("DOMContentLoaded", loadData());
 </script>
