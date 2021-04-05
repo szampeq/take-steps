@@ -61,7 +61,7 @@ exports.userData =  async (req, res) => {
 
 exports.newStep = async (req, res) => {
     const date = new Date(req.body.date);
-    date.setDate(date.getDate() + 1);
+    date.setDate(date.getDate());
 
     const insertSteps = async (results) => {
         try{
