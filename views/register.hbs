@@ -9,49 +9,31 @@
 </head>
 
 <body>
-    <nav>
-        <h1>TakeSteps</h1>
-        <ul>
-            <li><a href="/">start</a></li>
-            <li><a href="/login">zaloguj</a></li>
-            <li><a href="/register">zarejestruj</a></li>
-        </ul>
-    </nav>
+        <section class="form-window">
+            <form action="/auth/register" method="POST">
+                <div class="box">
+                    <div class="form-head">
+                        <h2>Formularz rejestracji</h2>
+                    </div>
 
-    <div class="container">
-
-        <div class="form-window">
-
-                <h1>Formularz rejestracji</h1><br></br>
-
-                <form action="/auth/register" method="POST">
-
-                        <label for="name">Nazwa użytkownika</label>
+                    <div class="form-body">
                         <input type="name" placeholder="Nazwa użytkownika" id="name" name="name">
-
-                        <label for="email">Adres email</label>
                         <input type="email" placeholder="Adres email" id="email" name="email">
-
-                        <label for="password">Hasło</label>
                         <input type="password" placeholder="Hasło" id="password" name="password">
-
-                        <label for="passwordConfirm">Powtórz hasło</label>
                         <input type="password" placeholder="Powtórz hasło" id="passwordConfirm" name="passwordConfirm">
+                    </div>
 
-                    <button type="submit" class="form-button">Zarejestruj się</button>
-                </form>
-                Masz już konto? <a href="/login"><b>Zaloguj się!</b></a>
-        </div>
+                    <div class="form-footer">
+                        <button type="submit" class="form-button">Zarejestruj się</button>
+                        <br><br>Masz już konto? <a href="/login"><b>Zaloguj się!</b></a>
+                    </div>
+                </div>
+            </form>
+
+        </section>
         {{#if message}}
             <h4>{{message}}</h4>
         {{/if}}
-    </div>
-
-    <div class="footer">
-        &#xA9 TakeSteps 2021
-    </div>
-
-</body>
 
 </body>
 </html>

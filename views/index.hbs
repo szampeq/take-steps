@@ -9,19 +9,26 @@
     <title>TakeSteps App</title>
 </head>
 <body>
-    <nav>
-        <h1>TakeSteps</h1>
-        <ul>
-            <li><a href="/">start</a></a></li>
-            {{#if user}}
-            <li><a href="/ranking">ranking</a></li>
-            <li><a href="/profile">profil</a></li>
-            <li><a href="/logout">wyloguj się</a></li>
-            {{else}}
-            <li><a href="/login">zaloguj</a></li>
-            <li><a href="/register">zarejestruj</a></li>
-            {{/if}}
-        </ul>
+    <nav class="navbar">
+        <div class="brand-title">TakeSteps</div>
+        <a href="#" class ="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/">start</a></a></li>
+                {{#if user}}
+                <li><a href="/ranking">ranking</a></li>
+                <li><a href="/profile">profil</a></li>
+                <li><a href="/logout">wyloguj się</a></li>
+                {{else}}
+                <li><a href="/login">zaloguj</a></li>
+                <li><a href="/register">zarejestruj</a></li>
+                {{/if}}
+            </ul>
+        </div>
     </nav>
 
 
@@ -69,6 +76,6 @@
     </div>
 
 
-
+     <script src="/js/script.js"></script>
 </body>
 </html>

@@ -9,42 +9,29 @@
 </head>
 
 <body>
-    <nav>
-        <h1>TakeSteps</h1>
-        <ul>
-            <li><a href="/">start</a></li>
-            <li><a href="/login">zaloguj</a></li>
-            <li><a href="/register">zarejestruj</a></li>
-        </ul>
-    </nav>
+    <section class="form-window">
+        <form action="/auth/login" method="POST">
+            <div class="box">
+                <div class="form-head">
+                    <h2>Formularz logowania</h2>
+                </div>
 
-    <div class="container">
+                <div class="form-body">
+                    <input type="email" placeholder="Adres email" id="email" name="email">
+                    <input type="password" placeholder="Hasło" id="password" name="password">
+                </div>
 
-        <div class="form-window">
-
-                <h1>Formularz logowania</h1><br></br>
-
-                <form action="/auth/login" method="POST">
-
-                        <label for="email">Adres email</label>
-                        <input type="email" placeholder="Adres email" id="email" name="email">
-
-                        <label for="password">Hasło</label>
-                        <input type="password" placeholder="Hasło" id="password" name="password">
-
+                <div class="form-footer">
                     <button type="submit" class="form-button">Zaloguj się</button>
-                </form>
-                Nie masz konta? <a href="/register"><b>Zarejestruj się!</b></a>
+                    <br><br>Nie masz konta? <a href="/register"><b>Zarejestruj się!</b></a>
+                </div>
+            </div>
+        </form>
+
         </div>
         {{#if message}}
             <h4>{{message}}</h4>
         {{/if}}
-    </div>
 
-    <div class="footer">
-        &#xA9 TakeSteps 2021
-    </div>
-    
-     <script src="/js/script.js"></script>
 </body>
 </html>
