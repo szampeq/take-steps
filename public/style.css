@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: rgb(29, 28, 28);
     color: #fff;
 }
 
@@ -118,72 +118,96 @@ i:hover {
     color: rgb(42, 4, 146);
   }
 
-.info{
-    color: white;
-    background-color: #2b2b2b;
-    background-image: url("/info.jpg");
-    background-size: 100% 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    min-height: 600px;
-    max-height: 600px;
-  }
-  
-  .infobackground{
-    text-align: center;
-    font-size: 16px;
-    padding: 150px;
-  }
+.info-image {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background-image: url("/formbg.jpg");
+  background-size: cover;
+}
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-      ". . ."
-      ". . ."
-      ". . .";
-  }
-  
-  .steps{
-    background-color: #f5f0f0;
-  }
-  
-  .infosteps{
-    color: #000000;
-    text-align: center;
-    padding: 20px;
-  } 
-  
-  .grid-content{
-    background-color: #fff;
-    text-align: center;
-    padding: 60px;
-    font-size: 20px;
-  }
+.info-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
 
-  .register-info {
-    background-color: #fff;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 50px;
-  }
+.info-container h1 {
+  font-size: 40px;
+  letter-spacing: 0.2em;
+}
 
-  .registerBtn {
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
+.info-container h1 span {
+  border: 3px solid #fff;
+  padding: 6px 14px;
+}
 
-  .fa-file-alt {
-    color: rgb(240, 174, 6);
-  }
+.info-desc {
+  margin: 20px;
+  display: block;
+  font-size: 15px;
+  text-shadow: 0 0 10px black;
+}
 
-  .fa-file-alt:hover {
-    color: rgb(240, 146, 6);
-  }
+.wrapper-grid {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
+}
+
+.grid-content {
+  overflow: hidden;
+  box-shadow: 0px 2px 8px 0px var(--clr-gray-light);
+  background-color: white;
+  text-align: center;
+  border-radius: 1rem;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.banner-icon {
+  width: 8rem;
+  margin-top: 4.5rem;
+  margin: auto;
+}
+
+.register-info {
+  background-color: #fff;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.grid-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.description {
+  margin: 1rem 2rem;
+  font-size: 0.9rem;
+}
+
+.registerBtn {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.fa-file-alt {
+  color: rgb(240, 174, 6);
+}
+
+.fa-file-alt:hover {
+  color: rgb(240, 146, 6);
+}
 
 
 .footer{
@@ -197,7 +221,7 @@ i:hover {
   .container {
       text-align: center;
       min-height: 500px;
-      padding: 50px;
+      padding: 30px;
       background-color: #fff;
   }
 
@@ -284,10 +308,62 @@ i:hover {
   box-shadow: 0px 0px 5px #000;
 }
 
+.form-inline {  
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 75px;
+}
+
+.form-inline form {
+  margin: auto;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button{
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 0px 50px;
+  background-color: #FF4B2B;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: box-shadow .5s ease;
+}
+
+.form-inline button:hover {
+  box-shadow: 0px 0px 5px #000;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 .avatar {
     vertical-align: middle;
-    width: 200px;
-    height: 200px;
+    width: 15rem;
+    height: 15rem;
     border-radius: 50%;
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
   }

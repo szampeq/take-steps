@@ -25,8 +25,8 @@
         </div>
     </nav>
 
-    <div class="info">
-        <div class="infobackground">
+    <div class="info-image">
+        <div class="info-container">
             <h1>Witaj {{user.name}}!</h1>
                         <h4>({{user.email}})</h4>
         <img src="/avatar.jpg" alt="Avatar" class="avatar"><br></br>
@@ -40,7 +40,7 @@
 
     <center><h1>Statystyki liczby kroków:</h1></center>
 
-    <div class="grid-container">
+    <div class="wrapper-grid">
         <div class="grid-content">
             <h4>Ostatnie 7 dni:</h4>
             <i class="fas fa-calendar-week"></i>
@@ -59,7 +59,18 @@
             <h6><p id="alldays"></p></h6>
         </div>
     </div>
-            <div class="new-steps"><button class="form-button new"> Dodaj/Edytuj kroki </button></div>
+
+    <div class="form-inline">
+        <form action="/profile/userdata/steps/{{user.id}}" method="POST">
+        <h3>Dodawanie kroków</h3>
+            <input type="date" placeholder="Data" id="date" name="date" required="required">
+            <input type="number" placeholder="Liczba kroków" id="steps" name="steps" required="required">
+            <button type="submit" class="form-button steps">Dodaj/Zmień</button>
+        </form>
+    </div>
+
+
+
             <h2>Historia kroków:</h2>
             {{#if message}}
                <h4>{{message}}</h4>
@@ -77,24 +88,7 @@
         &#xA9 TakeSteps 2021
     </div>
 
-    <div class="form-window steps">
-        <form action="/profile/userdata/steps/{{user.id}}" method="POST">
-        <h3>Dodawanie kroków</h3>
-            <label for="date">Data</label>
-            <input type="date" placeholder="Data" id="date" name="date" required="required">
-
-            <label for="steps">Liczba kroków</label>
-            <input type="number" placeholder="Liczba kroków" id="steps" name="steps" required="required">
-            <span style="display: inline;">
-                <button type="submit" class="form-button steps">Dodaj/Zmień</button>
-                <button type="button" class="form-button cancelForm">Anuluj</button>
-            </span>
-
-        </form>
-    </div>
-
      <script src="/js/script.js"></script>
-     <script src="/js/steps.js"></script>
      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     
