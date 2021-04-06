@@ -37,6 +37,7 @@
                         <th>Ranking</th>
                         <th>Użytkownik</th>
                         <th>Liczba kroków</th>
+                        <th>Kilometry</th>
                      </tr>
                 </thead>
                 <tbody>
@@ -82,12 +83,15 @@
             const td1 = document.createElement("td");
             const td2 = document.createElement("td");
             const td3 = document.createElement("td");
+            const td4 = document.createElement("td");
             td1.textContent = i + 1;
             td2.textContent = data[i].name;
             td3.textContent = data[i].monthsteps;
+            td4.textContent = (0.00075 * data[i].monthsteps).toFixed(2) + "km";
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
+            tr.appendChild(td4);
             rankingsBody.appendChild(tr);
         }
     }
