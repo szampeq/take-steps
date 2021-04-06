@@ -4,7 +4,7 @@ const mysql = require("mysql");
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
-//const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
 
 dotenv.config({path: './.env'})
 
@@ -38,6 +38,6 @@ db.getConnection( (error) => {
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("Server started");
 })
