@@ -380,11 +380,11 @@ outline: none;
 
 .ranking-table {
   border-collapse: collapse;
+  border-spacing: 0;
   margin: auto;
   font-size: 0.9em;
   font-family: sans-serif;
-  width: 80%;
-  min-width: 800px;
+  width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -414,4 +414,24 @@ outline: none;
 .ranking-table tbody tr.active-row {
   font-weight: bold;
   color: #FF4B2B;
+}
+
+@media screen and (max-width: 600px) {
+  thead {
+    display: none;
+  }
+
+  td {
+    display: block;
+  }
+
+  td:first-child{
+    background-color: #FF4B2B;
+    color: #fff;
+    text-align: center;
+  }
+
+  td:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
 }
